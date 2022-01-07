@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/DefaultEventTickets.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> DefaultEventTickets.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.41% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>21/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>7/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.43% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>20/28</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.11;
+import {EventTickets} from "./EventTickets.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+/* The EventTickets contract keeps track of the details and ticket sales of one event. */
+&nbsp;
+contract DefaultEventTickets is EventTickets, Ownable {
+    /*
+        Create a public state variable called owner.
+        Use the appropriate keyword to create an associated getter function.
+        Use the appropriate keyword to allow ether transfers.
+     */
+&nbsp;
+    // TODO: refactor
+    //uint256 TICKET_PRICE = 100 wei;
+&nbsp;
+    /*
+        Create a struct called "Event".
+        The struct has 6 fields: description, website (URL), totalTickets, sales, buyers, and isOpen.
+        Choose the appropriate variable type for each field.
+        The "buyers" field should keep track of addresses and how many tickets each buyer purchases.
+    */
+    struct Event{
+        string description;
+        string website;
+        uint256 totalTickets;
+        uint256 sales;
+        uint256 ticketPrice;
+        mapping(address=&gt;uint256) buyers;
+        bool isOpen;
+    }
+&nbsp;
+    Event myEvent;
+&nbsp;
+    /*
+        Define 3 logging events.
+        LogBuyTickets should provide information about the purchaser and the number of tickets purchased.
+        LogGetRefund should provide information about the refund requester and the number of tickets refunded.
+        LogEndSale should provide infromation about the contract owner and the balance transferred to them.
+    */
+    event LogBuyTickets(address indexed purchaser, uint256 ticketsPurchased);
+    event LogGetRefund(address indexed refundRequester, uint256 ticketsRefunded);
+    event LogEndSale(address indexed owner, uint256 balanceTransfered);
+    /*
+        Create a modifier that throws an error if the msg.sender is not the owner.
+        TODO: refactoring; use openzeppelin Ownable contract.
+        (https://docs.openzeppelin.com/contracts/4.x/api/access#Ownable)
+        (https://docs.openzeppelin.com/learn/developing-smart-contracts#importing_openzeppelin_contracts)
+    */
+    /*
+    modifier isOwner(){
+        require(msg.sender==owner(), "Not Owner");
+        _;
+    }
+    */
+    /*
+        Define a constructor.
+        The constructor takes 3 arguments, the description, the URL and the number of tickets for sale.
+        Set the owner to the creator of the contract.
+        Set the appropriate myEvent details.
+    */
+&nbsp;
+    constructor(string memory _description, string memory _url, uint256 _totalTickets, uint _ticketPrice){
+        transferOwnership(msg.sender);
+        myEvent.description=_description;
+        myEvent.website = _url;
+        myEvent.totalTickets = _totalTickets;
+        myEvent.ticketPrice = _ticketPrice;
+        myEvent.isOpen = true;
+    }
+    /*
+        Define a function called readEvent() that returns the event details.
+        This function does not modify state, add the appropriate keyword.
+        The returned details should be called description, website, uint totalTickets, uint sales, bool isOpen in that order.
+    */
+<span class="fstat-no" title="function not covered" >    function readEvent()</span>
+        external
+        view
+        returns (
+            string memory description,
+            string memory website,
+            uint256 totalTickets,
+            uint256 sales,
+            bool isOpen
+        )
+    { 
+<span class="cstat-no" title="statement not covered" >        return(</span>
+            myEvent.description,
+            myEvent.website,
+            myEvent.totalTickets,
+            myEvent.sales,
+            myEvent.isOpen
+        );
+    }
+&nbsp;
+    /*
+        Define a function called getBuyerTicketCount().
+        This function takes 1 argument, an address and
+        returns the number of tickets that address has purchased.
+    */
+&nbsp;
+    function getBuyerTicketCount(address buyer) external view returns (uint256) {return myEvent.buyers[buyer]; }
+        
+    /*
+        Define a function called buyTickets().
+        This function allows someone to purchase tickets for the event.
+        This function takes one argument, the number of tickets to be purchased.
+        This function can accept Ether.
+        Be sure to check:
+            - That the event isOpen
+            - That the transaction value is sufficient for the number of tickets purchased
+            - That there are enough tickets in stock
+        Then:
+            - add the appropriate number of tickets to the purchasers count
+            - account for the purchase in the remaining number of available tickets
+            - refund any surplus value sent with the transaction
+            - emit the appropriate event
+    */
+    function buyTickets(uint256 quantity) external payable {
+        require(myEvent.isOpen == true,"Event closed");
+        require(msg.value &gt;= quantity * myEvent.ticketPrice, "Funds not enough to buy the tickets");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require((myEvent.totalTickets - myEvent.sales) &gt;= quantity,"Total tickets less than quantity");
+        myEvent.buyers[msg.sender] += quantity;
+        myEvent.sales += quantity;
+        myEvent.totalTickets -= quantity;
+        uint256 totalPrice = quantity* myEvent.ticketPrice;
+        if(msg.value &gt; totalPrice){
+            payable(msg.sender).transfer(msg.value - totalPrice);
+        } 
+        emit LogBuyTickets(msg.sender,quantity);
+     }
+&nbsp;
+&nbsp;
+    /*
+        Define a function called getRefund().
+        This function allows someone to get a refund for tickets for the account they purchased from.
+        TODO:
+            - Check that the requester has purchased tickets.
+            - Make sure the refunded tickets go back into the pool of avialable tickets.
+            - Transfer the appropriate amount to the refund requester.
+            - Emit the appropriate event.
+    */
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getRefund(uint256 toRefund) external { </span>
+<span class="cstat-no" title="statement not covered" >        require(myEvent.buyers[msg.sender] &gt;= 0, "Not Tickets")</span>;
+<span class="cstat-no" title="statement not covered" >        require(toRefund&gt;0, "Tickets quantity must be greater than 0")</span>;
+<span class="cstat-no" title="statement not covered" >        myEvent.buyers[msg.sender] = 0</span>;
+<span class="cstat-no" title="statement not covered" >        myEvent.sales -= toRefund</span>;
+<span class="cstat-no" title="statement not covered" >        myEvent.totalTickets += toRefund</span>;
+<span class="cstat-no" title="statement not covered" >        payable(msg.sender).transfer(toRefund * myEvent.ticketPrice)</span>;
+<span class="cstat-no" title="statement not covered" >        emit LogGetRefund(msg.sender,toRefund);</span>
+    }
+&nbsp;
+    /*
+        Define a function called endSale().
+        This function will close the ticket sales.
+        This function can only be called by the contract owner.
+        TODO:
+            - close the event
+            - transfer the contract balance to the owner
+            - emit the appropriate event
+    */
+&nbsp;
+    function endSale() external override onlyOwner {
+        myEvent.isOpen = false;
+        uint256 balance = address(this).balance;
+        payable(owner()).transfer(balance);
+        emit LogEndSale(owner(), balance);
+     }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Dec 24 2021 19:30:46 GMT-0300 (Argentina Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
