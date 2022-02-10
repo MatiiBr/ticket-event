@@ -142,8 +142,9 @@ contract DefaultEventTickets is EventTickets, Ownable {
     */
 
     function getRefund(uint256 toRefund) external { 
-        require(myEvent.buyers[msg.sender] >= 0, "Not Tickets");
+        require(myEvent.buyers[msg.sender] > 0, "Not tickets");
         require(toRefund>0, "Tickets quantity must be greater than 0");
+        require(myEvent.buyers[msg.sender]>=toRefund,"Buyer has not that amount of tickets");
         myEvent.buyers[msg.sender] = 0;
         myEvent.sales -= toRefund;
         myEvent.totalTickets += toRefund;

@@ -53,6 +53,11 @@ describe("DefaultEventTickets Contract", function () {
         await expect(defaultEventTickets.connect(addr2).getRefund(2)).to.be.revertedWith("Not tickets")
     })
 
+    it('should not refund a ticket if the buyer has less ticket quantity than it has', async () => {
+        await defaultEventTickets.connect(addr2).buyTickets(2, {value:2});
+        await expect(defaultEventTickets.connect(addr2).getRefund(3)).to.be.revertedWith("Buyer has not that amount of tickets")
+    })
+
     it('should not buy a ticket if the event is closed', async () => {
         await defaultEventTickets.connect(owner).endSale();
         await expect(defaultEventTickets.connect(addr1).buyTickets(2)).to.be.revertedWith("Event closed")

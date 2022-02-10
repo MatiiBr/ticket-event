@@ -23,6 +23,7 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 interface DefaultEventTicketsInterface extends ethers.utils.Interface {
   functions: {
     "buyTickets(uint256)": FunctionFragment;
+    "c_0xe9566191(bytes32)": FunctionFragment;
     "endSale()": FunctionFragment;
     "getBuyerTicketCount(address)": FunctionFragment;
     "getRefund(uint256)": FunctionFragment;
@@ -35,6 +36,10 @@ interface DefaultEventTicketsInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "buyTickets",
     values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "c_0xe9566191",
+    values: [BytesLike]
   ): string;
   encodeFunctionData(functionFragment: "endSale", values?: undefined): string;
   encodeFunctionData(
@@ -57,6 +62,10 @@ interface DefaultEventTicketsInterface extends ethers.utils.Interface {
   ): string;
 
   decodeFunctionResult(functionFragment: "buyTickets", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "c_0xe9566191",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "endSale", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "getBuyerTicketCount",
@@ -152,6 +161,11 @@ export class DefaultEventTickets extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    c_0xe9566191(
+      c__0xe9566191: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<[void]>;
+
     endSale(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -195,6 +209,11 @@ export class DefaultEventTickets extends BaseContract {
     overrides?: PayableOverrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  c_0xe9566191(
+    c__0xe9566191: BytesLike,
+    overrides?: CallOverrides
+  ): Promise<void>;
+
   endSale(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -235,6 +254,11 @@ export class DefaultEventTickets extends BaseContract {
   callStatic: {
     buyTickets(
       quantity: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    c_0xe9566191(
+      c__0xe9566191: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -341,6 +365,11 @@ export class DefaultEventTickets extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    c_0xe9566191(
+      c__0xe9566191: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     endSale(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -373,6 +402,11 @@ export class DefaultEventTickets extends BaseContract {
     buyTickets(
       quantity: BigNumberish,
       overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    c_0xe9566191(
+      c__0xe9566191: BytesLike,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     endSale(

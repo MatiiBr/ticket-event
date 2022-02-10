@@ -22,12 +22,17 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 interface EventFactoryInterface extends ethers.utils.Interface {
   functions: {
     "addEvent(address)": FunctionFragment;
+    "c_0xb2a64d80(bytes32)": FunctionFragment;
     "createEvent(string,string,uint256,uint256)": FunctionFragment;
     "getEvent(uint256)": FunctionFragment;
     "quantity()": FunctionFragment;
   };
 
   encodeFunctionData(functionFragment: "addEvent", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "c_0xb2a64d80",
+    values: [BytesLike]
+  ): string;
   encodeFunctionData(
     functionFragment: "createEvent",
     values: [string, string, BigNumberish, BigNumberish]
@@ -39,6 +44,10 @@ interface EventFactoryInterface extends ethers.utils.Interface {
   encodeFunctionData(functionFragment: "quantity", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "addEvent", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "c_0xb2a64d80",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "createEvent",
     data: BytesLike
@@ -98,6 +107,11 @@ export class EventFactory extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    c_0xb2a64d80(
+      c__0xb2a64d80: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<[void]>;
+
     createEvent(
       _description: string,
       _url: string,
@@ -128,6 +142,11 @@ export class EventFactory extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  c_0xb2a64d80(
+    c__0xb2a64d80: BytesLike,
+    overrides?: CallOverrides
+  ): Promise<void>;
+
   createEvent(
     _description: string,
     _url: string,
@@ -152,6 +171,11 @@ export class EventFactory extends BaseContract {
 
   callStatic: {
     addEvent(eventTickets: string, overrides?: CallOverrides): Promise<void>;
+
+    c_0xb2a64d80(
+      c__0xb2a64d80: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     createEvent(
       _description: string,
@@ -184,6 +208,11 @@ export class EventFactory extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    c_0xb2a64d80(
+      c__0xb2a64d80: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     createEvent(
       _description: string,
       _url: string,
@@ -201,6 +230,11 @@ export class EventFactory extends BaseContract {
     addEvent(
       eventTickets: string,
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    c_0xb2a64d80(
+      c__0xb2a64d80: BytesLike,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     createEvent(
